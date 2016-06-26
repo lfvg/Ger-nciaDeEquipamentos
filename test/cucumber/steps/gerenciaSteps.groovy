@@ -76,32 +76,3 @@ Then(~/^eu vejo uma mensagem e erro$/) { ->
     at ListagemArmazemPage
 }
 
-Given(~/^eu criei o armazem "([^"]*)"$/) { String nome ->
-    to InsercaoPage
-    at InsercaoPage
-    page.criarArmazem(nome)
-}
-And(~/^e armazenei os  equipamento "([^"]*)" e "([^"]*)" em "([^"]*)"$/) { String nome, String outro, String local ->
-    to CreateEquipamentoPage
-    at CreateEquipamentoPage
-    assert page.criarEquipamento(nome, local)
-    assert page.criarEquipamento(outro, local)
-}
-And(~/^eu navego até a pagina que detalha o Armazen "([^"]*)"$/) { String arg1 ->
-    to ShowPage
-    at ShowPage
-}
-When(~/^eu seleciono editar "([^"]*)"$/) { String arg1 ->
-    at ShowPage
-    page.editar()
-}
-And(~/^diminuo a sua area util pra (\d+)$/) { int arg1 ->
-    to EditPage
-    at EditPage
-    page.editar()
-    page.alterar()
-}
-Then(~/^eu vejo uma mensagem de erro$/) { ->
-    to ListagemArmazemPage
-    at ListagemArmazemPage
-}

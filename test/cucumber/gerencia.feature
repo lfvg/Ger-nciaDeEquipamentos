@@ -18,10 +18,3 @@ Feature: Como um usuario do sistema eu ao adicionar novos equipamentos eu consig
     When eu seleciono deletar "grad"
     Then eu vejo uma mensagem e erro
 
-  Scenario: Editar a area util para um valor menor que a ocupação
-    Given eu criei o armazem "grad"
-    And e armazenei os  equipamento "monitor" e "cpu" em "grad"
-    And eu navego até a pagina que detalha o Armazen "grad"
-    When eu seleciono editar "grad"
-    And diminuo a sua area util pra 1
-    Then eu vejo uma mensagem de erro
